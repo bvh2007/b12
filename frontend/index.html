@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TàiLiệuSV – Kho tài liệu học tập</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="/">📚 TàiLiệu<span>SV</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#documents">Tài liệu</a>
+      <a href="#subjects">Môn học</a>
+      <a href="#popular">Phổ biến</a>
+    </nav>
+    <div class="nav-actions" id="navActions"></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">🎓 Cộng đồng chia sẻ kiến thức sinh viên</div>
+    <h1>Tìm đúng tài liệu. Học nhanh hơn.</h1>
+    <p>Giáo trình, bài giảng, đề thi và ghi chú được sinh viên chia sẻ trong một nơi.</p>
+    <form class="search" id="searchForm">
+      <span class="search-icon">⌕</span>
+      <input id="searchInput" type="text" placeholder="Tìm tên tài liệu, môn học, từ khóa...">
+      <button type="submit" class="btn btn-white">Tìm kiếm</button>
+    </form>
+    <div class="quick-tags">
+      <button data-quick-search="Lập trình">Lập trình</button>
+      <button data-quick-search="Cơ sở dữ liệu">Cơ sở dữ liệu</button>
+      <button data-quick-search="Toán">Toán</button>
+      <button data-quick-search="Đề thi">Đề thi</button>
+    </div>
+  </section>
+
+  <main class="container" id="documents">
+    <section class="stats-row" id="statsRow"></section>
+
+    <section class="content-layout">
+      <aside class="filter-panel">
+        <div class="filter-title"><span>🔎 Bộ lọc</span><button id="clearFilters" class="link-btn">Xóa lọc</button></div>
+        <label>Tìm trong kết quả<input id="inlineSearch" type="text" placeholder="Tên tài liệu..."></label>
+        <label>Loại tài liệu
+          <select id="typeFilter">
+            <option value="">Tất cả</option><option>Giáo trình</option><option>Bài giảng</option><option>Đề thi</option><option>Ghi chú</option>
+          </select>
+        </label>
+        <label>Khoa
+          <select id="facultyFilter"><option value="">Tất cả khoa</option><option>Công nghệ thông tin</option><option>Kinh tế</option><option>Điện - Điện tử</option><option>Ngoại ngữ</option></select>
+        </label>
+        <label>Môn học
+          <select id="subjectFilter"><option value="">Tất cả môn học</option></select>
+        </label>
+        <label>Sắp xếp
+          <select id="sortFilter"><option value="new">Mới nhất</option><option value="download">Nhiều lượt tải</option><option value="rating">Đánh giá cao</option><option value="name">Tên A-Z</option></select>
+        </label>
+        <div class="filter-section">
+          <div class="filter-label">Chủ đề nổi bật</div>
+          <div class="chips" id="tagFilters">
+            <button data-tag="Lập trình">Lập trình</button><button data-tag="SQL">SQL</button><button data-tag="Python">Python</button><button data-tag="Mạng máy tính">Mạng máy tính</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="results-panel">
+        <div class="list-head">
+          <div><h2>Kho tài liệu</h2><span id="countText" class="muted"></span></div>
+          <div class="view-toggle"><button class="active" data-view="grid">▦</button><button data-view="list">☰</button></div>
+        </div>
+        <div id="docList" class="grid"></div>
+      </section>
+    </section>
+
+    <section class="feature-section" id="subjects">
+      <div class="section-heading"><div><span class="eyebrow">KHÁM PHÁ</span><h2>Môn học được quan tâm</h2></div><span class="muted">Dựa trên lượt tải và đánh giá</span></div>
+      <div class="subject-cards">
+        <button class="subject-card" data-quick-search="Lập trình"><span>💻</span><b>Lập trình</b><small>Python · C++ · Java</small></button>
+        <button class="subject-card" data-quick-search="Cơ sở dữ liệu"><span>🗄️</span><b>Cơ sở dữ liệu</b><small>SQL · ERD · Database</small></button>
+        <button class="subject-card" data-quick-search="Mạng máy tính"><span>🌐</span><b>Mạng máy tính</b><small>TCP/IP · Network</small></button>
+        <button class="subject-card" data-quick-search="Toán"><span>📐</span><b>Toán</b><small>Đại số · Giải tích</small></button>
+      </div>
+    </section>
+
+    <section class="feature-section" id="popular">
+      <div class="section-heading"><div><span class="eyebrow">TÍNH NĂNG</span><h2>Học tập thuận tiện hơn</h2></div></div>
+      <div class="benefit-grid">
+        <article><span>⭐</span><h3>Đánh giá tài liệu</h3><p>Chấm điểm 1–5 sao để giúp sinh viên chọn tài liệu chất lượng.</p></article>
+        <article><span>❤️</span><h3>Lưu yêu thích</h3><p>Lưu tài liệu cần dùng sau vào thư viện cá nhân.</p></article>
+        <article><span>💬</span><h3>Bình luận</h3><p>Trao đổi, đặt câu hỏi và phản hồi ngay dưới tài liệu.</p></article>
+        <article><span>🔔</span><h3>Thông báo</h3><p>Nhận thông báo khi tài liệu được duyệt hoặc có hoạt động mới.</p></article>
+        <article><span>🚩</span><h3>Báo cáo tài liệu</h3><p>Gửi báo cáo khi tài liệu sai, vi phạm hoặc không phù hợp.</p></article>
+        <article><span>🛡️</span><h3>Duyệt nội dung</h3><p>Moderator kiểm tra tài liệu trước khi hiển thị công khai.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2026 TàiLiệuSV · Chia sẻ kiến thức, cùng nhau tiến bộ</footer>
+
+  <div class="modal" id="authModal"><div class="modal-box"><button class="close" data-close>&times;</button><h2 id="authTitle">Đăng nhập</h2><form id="authForm"><input id="authName" type="text" placeholder="Họ và tên"><input id="authEmail" type="email" placeholder="Email" required><input id="authPassword" type="password" placeholder="Mật khẩu (tối thiểu 6 ký tự)" required><button class="btn btn-primary" type="submit" id="authSubmit">Đăng nhập</button></form><p class="switch"><span id="authSwitchText">Chưa có tài khoản?</span> <a href="#" id="authSwitch">Đăng ký ngay</a></p></div></div>
+
+  <div class="modal" id="uploadModal"><div class="modal-box modal-large"><button class="close" data-close>&times;</button><h2>⬆ Tải tài liệu lên</h2><p class="muted">Tài liệu mới sẽ ở trạng thái chờ duyệt theo quy trình của hệ thống.</p><form id="uploadForm"><div class="form-grid"><div><label>Tiêu đề<input id="upTitle" type="text" placeholder="VD: Giáo trình Lập trình C++" required></label><label>Môn học<select id="upSubject"><option>Lập trình</option><option>Cơ sở dữ liệu</option><option>Mạng máy tính</option><option>Toán</option><option>Kinh tế</option><option>Ngoại ngữ</option><option>Khác</option></select></label><label>Loại tài liệu<select id="upType"><option>Giáo trình</option><option>Bài giảng</option><option>Đề thi</option><option>Ghi chú</option></select></label></div><div><label>Mô tả<textarea id="upDesc" placeholder="Mô tả nội dung, chương, mục tiêu..."></textarea></label><label>Tags<input id="upTags" type="text" placeholder="VD: C++, OOP, lập trình cơ bản"></label><label>File<input id="upFile" type="file" accept=".pdf,.doc,.docx" required></label><p class="muted small">PDF, DOC, DOCX · tối đa 20MB</p></div></div><button class="btn btn-primary" type="submit">Gửi tài liệu chờ duyệt</button></form></div></div>
+
+  <div class="modal" id="detailModal"><div class="modal-box modal-xl"><button class="close" data-close>&times;</button><div id="detailContent"></div></div></div>
+  <div class="modal" id="profileModal"><div class="modal-box modal-large"><button class="close" data-close>&times;</button><div id="profileContent"></div></div></div>
+  <div class="modal" id="adminModal"><div class="modal-box modal-xl"><button class="close" data-close>&times;</button><div id="adminContent"></div></div></div>
+  <div class="modal" id="notificationModal"><div class="modal-box"><button class="close" data-close>&times;</button><div id="notificationContent"></div></div></div>
+  <div id="toast" class="toast"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
